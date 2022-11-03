@@ -13,8 +13,10 @@ public class SmartTV {
             if(valorEntrada.equalsIgnoreCase("desligar")){
                 ligada = false;
                 ligarTV(ligada);
-            } else {
+            } else if(valorEntrada.equalsIgnoreCase("mudar +") || valorEntrada.equalsIgnoreCase("mudar -")){
                 mudarCanal(valorEntrada);
+            } else {
+                mudarVolume(valorEntrada);
             }
             
         } else {
@@ -39,6 +41,27 @@ public class SmartTV {
         } else {
             canalTV = Integer.parseInt(valorEntrada);
             System.out.println("Canal " +canalTV);
+        }
+    }
+
+    public static void mudarVolume(String valorEntrada){
+        int volume = 0;
+        if (valorEntrada.equalsIgnoreCase("volume +")){
+            volume++;
+            if(volume > 20){
+                System.out.println("Volume Max");
+                volume = 100;
+            } else {
+                System.out.println("Volume " + volume);
+            }
+        } else if(valorEntrada.equalsIgnoreCase("volume -")){
+            volume--;
+            if (volume < 0){
+                System.out.println("Volume min");
+                volume = 0;
+            } else{
+                System.out.println("Volume " + volume);
+            }
         }
     }
 
