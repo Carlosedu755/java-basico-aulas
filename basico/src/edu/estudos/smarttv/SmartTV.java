@@ -1,3 +1,5 @@
+package edu.estudos.smarttv;
+
 import java.util.Scanner;
 
 public class SmartTV {
