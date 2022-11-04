@@ -65,11 +65,4 @@ public class SmartTV {
         }
     }
 
-    public static void main(String[] args) {
-        
-        boolean ligada = true;
-        int volumeTV = 1;
-
-        ligarTV(ligada);
-    }
 }
