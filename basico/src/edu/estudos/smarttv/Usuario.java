@@ -7,6 +7,7 @@ public class Usuario {
         String valorEntrada;
         SmartTV smartTv = new SmartTV();
 
+        System.out.println("  ligar   | desligar  ");
         System.out.println("----------------------");
         System.out.println("Canal +   |   Volume +");
         System.out.println("Canal -   |   Volume -");
