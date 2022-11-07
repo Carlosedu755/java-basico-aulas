@@ -1,69 +1,73 @@
 package edu.estudos.smarttv;
 
-import java.util.Scanner;
-
 public class SmartTV {
     
-    public static void ligarTV(boolean ligada){
-        Scanner teclado = new Scanner(System.in);
+    static boolean ligada = false;
+    static int canalTV = 2;
+    static int volume = 5;
 
-        if(ligada == true){
-            System.out.println("Televisão ligada");
-            
-            String valorEntrada = teclado.nextLine();
-
-            if(valorEntrada.equalsIgnoreCase("desligar")){
-                ligada = false;
-                ligarTV(ligada);
-            } else if(valorEntrada.equalsIgnoreCase("mudar +") || valorEntrada.equalsIgnoreCase("mudar -")){
-                mudarCanal(valorEntrada);
-            } else {
-                mudarVolume(valorEntrada);
-            }
-            
+    /**
+     * @param valor
+     */
+    public static void validar(String valor){
+        if(valor.equalsIgnoreCase("ligar")){
+            ligarTV();;
+        } else if(valor.equalsIgnoreCase("desligar")){
+            desligarTV();
+        } else if(valor.equalsIgnoreCase("volume +") || valor.equalsIgnoreCase("volume+")){
+            aumentarVolume(valor);
+        } else if(valor.equalsIgnoreCase("volume -") || valor.equalsIgnoreCase("volume-")){
+            diminuirVolume(valor);
+        } else if(valor.equalsIgnoreCase("canal +") || valor.equalsIgnoreCase("canal+")){
+            aumentarCanal(valor);
+        } else if(valor.equalsIgnoreCase("canal -") || valor.equalsIgnoreCase("canal-")){
+            diminuirCanal(valor);
         } else {
-            System.out.println("Televisão Desligada");
-
-            String valorEntrada = teclado.nextLine();
-            if(valorEntrada.equalsIgnoreCase("ligar")){
-                ligada = true;
-                ligarTV(ligada);
-            }
+            mudarCanal(valor);
         }
     }
 
-    public static void mudarCanal(String valorEntrada){
-        int canalTV = 1;
-        if(valorEntrada.equalsIgnoreCase("mudar +")){
-            canalTV++;
-            System.out.println("Canal " + canalTV);
-        } else if(valorEntrada.equalsIgnoreCase("mudar -")){
-            canalTV--;
-            System.out.println("Canal " +canalTV);
+
+    public static void ligarTV(){
+        System.out.println("Televisão Ligada"); 
+    }
+
+    public static void desligarTV(){
+        System.out.println("Televisão Desligada");
+    }
+
+    public static void aumentarCanal(String valorCanal){       
+        canalTV++;
+        System.out.println("Canal " + canalTV);
+    }
+
+    public static void diminuirCanal(String valorCanal){
+        canalTV--;
+        System.out.println("Canal " + canalTV);
+    }
+
+    public static void mudarCanal(String valorCanal){
+        canalTV = Integer.parseInt(valorCanal);
+        System.out.println("Canal " + canalTV);
+    }
+
+    public static void aumentarVolume(String valorVolume){
+        volume++;
+        if(volume > 20){
+            System.out.println("Volume Max");
+            volume = 20;
         } else {
-            canalTV = Integer.parseInt(valorEntrada);
-            System.out.println("Canal " +canalTV);
+            System.out.println("Volume " + volume);
         }
     }
 
-    public static void mudarVolume(String valorEntrada){
-        int volume = 0;
-        if (valorEntrada.equalsIgnoreCase("volume +")){
-            volume++;
-            if(volume > 20){
-                System.out.println("Volume Max");
-                volume = 100;
-            } else {
-                System.out.println("Volume " + volume);
-            }
-        } else if(valorEntrada.equalsIgnoreCase("volume -")){
-            volume--;
-            if (volume < 0){
-                System.out.println("Volume min");
-                volume = 0;
-            } else{
-                System.out.println("Volume " + volume);
-            }
+    public static void diminuirVolume(String valorVolume){
+        volume--;
+        if(volume < 0){
+            System.out.println("Volume min");
+            volume = 0;
+        } else {
+            System.out.println("Volume " + volume);
         }
     }
 

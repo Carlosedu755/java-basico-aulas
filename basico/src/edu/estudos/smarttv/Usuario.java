@@ -3,9 +3,11 @@ import java.util.Scanner;
 
 public class Usuario {
     
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         String valorEntrada;
-        SmartTV smartTv = new SmartTV();
 
         System.out.println("  ligar   | desligar  ");
         System.out.println("----------------------");
@@ -20,5 +22,11 @@ public class Usuario {
         Scanner teclado = new Scanner(System.in);
         valorEntrada = teclado.nextLine();
 
+        SmartTV.validar(valorEntrada);
+
+        teclado.close();
+
     }
+
+    
 }
