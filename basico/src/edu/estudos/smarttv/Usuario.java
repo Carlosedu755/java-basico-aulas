@@ -1,10 +1,14 @@
 package edu.estudos.smarttv;
 import java.util.Scanner;
 
+/**
+ * @author Carlos
+ * @since 1.0
+ */
 public class Usuario {
     
     /**
-     * @param args
+     * @param metodo main
      */
     public static void main(String[] args) {
         String valorEntrada;

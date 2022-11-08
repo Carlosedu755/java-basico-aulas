@@ -7,6 +7,7 @@ public class SmartTV {
     static int volume = 5;
 
     /**
+     * @implNote metodo para validar
      * @param valor
      */
     public static void validar(String valor){
